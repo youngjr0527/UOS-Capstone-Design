@@ -1,0 +1,12 @@
+langchain
+openai
+chromadb
+python-dotenv
+tiktoken
+sqlalchemy
+unstructured
+markdown
+SpeechRecognition
+pyaudio
+pyttsx3
+selenium
