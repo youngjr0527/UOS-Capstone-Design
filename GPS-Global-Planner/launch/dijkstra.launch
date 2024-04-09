@@ -1,0 +1,4 @@
+<launch>
+    <node name="dijkstra" pkg="school_navigation" type="dijkstra_node" output="screen" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find school_navigation)/rviz/test.rviz" />
+</launch>

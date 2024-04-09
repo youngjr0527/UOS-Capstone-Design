@@ -1,0 +1,40 @@
+<launch>
+  <node pkg="move_go1" name="gps_to_odom" type="gps_imu_to_odom.py" output="screen"/>
+  <!-- <node pkg="move_go1" name="change_cmd_vel" type="change_cmd_vel.py"/>
+  <node pkg="move_go1" name="change_scanl" type="change_scan.py"/> -->
+
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  <!-- teb_local_planner -->
+  <!-- <rosparam file="$(find move_go1)/cfg/diff_drive/dyn_obst/teb_local_planner_params_t.yaml" command="load" /> -->
+  <!-- dwa_local_planner -->
+    <rosparam file="$(find move_go1)/cfg/dwa/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find move_go1)/cfg/diff_drive/costmap_common_params_t.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find move_go1)/cfg/diff_drive/costmap_common_params_t.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find move_go1)/cfg/diff_drive/dyn_obst/local_costmap_params_t.yaml" command="load" />
+    <rosparam file="$(find move_go1)/cfg/diff_drive/dyn_obst/global_costmap_params_t.yaml" command="load" />
+    
+    <!-- Here we load our costmap conversion settings -->
+    <!-- If you active the following line, disable 'ground_truth_obstacles' at the bottom of this script! -->
+    <!-- rosparam file="$(find move_go1)/cfg/diff_drive/dyn_obst/costmap_converter_params.yaml" command="load" /-->
+    <rosparam file="$(find move_go1)/cfg/diff_drive/costmap_converter_params.yaml" command="load" /> 
+
+    <param name="TebLocalPlannerROS/include_costmap_obstacles" value="False" />   
+    <param name="TebLocalPlannerROS/include_dynamic_obstacles" value="True" />
+
+    <param name="base_global_planner" value="global_planner/SchoolGlobalPlanner" />
+    <param name="planner_frequency" value="1.0" />
+    <param name="planner_patience" value="5.0" />
+
+    <!-- <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" /> -->
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+    <param name="controller_frequency" value="5.0" />
+    <param name="controller_patience" value="15.0" />
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find move_go1)/cfg/rviz_navigation_go1.rviz"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 /map /odom 100" />
+  <node pkg="move_go1" type="tf_from_odom_to_base.py" name="tf_from_odom_to_base"/>
+  <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0 0 0 1 /base_footprint /laser_frame 100" />
+</launch>
