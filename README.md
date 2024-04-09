@@ -171,7 +171,7 @@
 │  ├─rviz
 │  ├─script
 │  └─src
-├─LangchainforQnA
+├─Langchain_Embedding_AI
 └─Bluetooth
 ```
 ### GO1-twist to Highcmd
@@ -186,6 +186,6 @@ Ros move_base의 속도 명령 토픽인 **[geometry_msgs](https://docs.ros.org/
 
 사족보행 로봇은 바퀴형 로봇과 다르게 오도메트리를 얻기 어려워, GPS와 IMU등의 외부 센서를 기반으로 오도메트리와 tf정보 생성.
 
-### LangchainforQnA
+### Langchain_Embedding_AI
 
 안내로봇과 사람이 음성 인터페이스로 소통하기 위한 LLM 모델. 학교에 대한 특정 정보를 답할 수 있음.  목적지 설정, 질문에 응답하는 기능을 수행.
