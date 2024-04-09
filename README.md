@@ -125,7 +125,7 @@
 
 &nbsp;&nbsp;칼만 필터는 잡음이 포함되어 있는 센서의 측정치에서 선형 역학계의 상태를 추정하는 재귀 필터이다. 칼만 필터 알고리즘은 예측과 업데이트 두 단계로 이뤄진다. 예측 단계에서는 현재 상태 변수의 값과 정확도를 예측한다. 업데이트 단계에서는 이전에 추정한 상태 변수를 기반으로 예측한 측정치와 실제 측정치를 반영해 현재의 상태 변수를 업데이트한다.<br>
 
-<img src="https://github.com/youngjr0527/UOS-Capstone-Design/assets/83463280/2ef4b73b-263d-4ee5-a839-46faf8c3b9a0" width="280px"><br>
+<img src="https://github.com/youngjr0527/UOS-Capstone-Design/assets/83463280/2ef4b73b-263d-4ee5-a839-46faf8c3b9a0" width="330px"><br>
 <img src="https://github.com/youngjr0527/UOS-Capstone-Design/assets/83463280/08d4b564-6b03-4f61-be2d-e03d0bdf72a1" width="330px"><br>
 
 
