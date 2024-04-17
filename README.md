@@ -13,7 +13,7 @@
 </div>
 <br>
 <details>
-  <summary>📝프로젝트 A1포스터</summary>
+  <summary>📝프로젝트 A0 포스터</summary>
   <img src="https://github.com/youngjr0527/UOS-Capstone-Design/assets/83463280/a4f5585a-5d51-4e98-85e3-5d170c4a5c73" width="550px"><br>
 </details>
 <details>
